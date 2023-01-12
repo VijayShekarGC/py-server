@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: py-server-deployment
+
+  labels:
+
+    app: py-server
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: py-server
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: py-server
+
+    spec:
+
+      containers:
+
+      - name: py-server
+
+        image: vijaydish/python_server:latest
+
+        ports:
+
+        - containerPort: 8082
